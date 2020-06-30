@@ -1,17 +1,18 @@
 <div style="margin-left: 20px;">
 <p>Connect a New Bot</p>
 <div>
+    <form [formGroup]="newBotForm">
 <div style=" margin-left: 10px; ">
      <div class="dx-field">
         <div class="dx-field-label">Server IpAddress</div>
         <div class="dx-field-value">
-            <dx-text-box  placeholder="Server IpAddress" stylingMode="outlined" [showClearButton]="true" [height]="40" ></dx-text-box>
+            <dx-text-box  placeholder="Server IpAddress" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="ipAddress" ></dx-text-box>
         </div>
     </div>
     <div class="dx-field">
         <div class="dx-field-label">Port</div>
         <div class="dx-field-value">
-            <dx-text-box placeholder="Port" stylingMode="outlined" [showClearButton]="true" [height]="40"></dx-text-box>
+            <dx-text-box placeholder="Port" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="port"></dx-text-box>
         </div>
     </div>
 </div>
@@ -19,13 +20,13 @@
     <div class="dx-field">
        <div class="dx-field-label">Bot Friendly Name</div>
        <div class="dx-field-value">
-           <dx-text-box placeholder="Bot Friendly Name" stylingMode="outlined" [showClearButton]="true" [height]="40"></dx-text-box>
+           <dx-text-box placeholder="Bot Friendly Name" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="botName"></dx-text-box>
        </div>
    </div>
    <div class="dx-field">
        <div class="dx-field-label">Description</div>
        <div class="dx-field-value">
-           <dx-text-box placeholder="Description" stylingMode="outlined" [showClearButton]="true" [height]="40"></dx-text-box>
+           <dx-text-box placeholder="Description" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="description"></dx-text-box>
        </div>
    </div>
 </div>
@@ -38,9 +39,11 @@ flex-direction:row;">
                 [showClearButton]="true"
                 stylingMode="outlined"
                 width="27%"
+                formControlName="group"
             ></dx-select-box>
         
 </div>
+</form>
 </div>
 
 <div style="display: flex;
@@ -51,6 +54,7 @@ flex-direction:row; margin-left: 8px; ">
                         text="Verify and Add"
                         type="normal"
                         [width]="200"
+                        (onClick)="addBot()"
                        >
                     </dx-button>
 
@@ -61,6 +65,7 @@ flex-direction:row; margin-left: 8px; ">
                         text="Clear"
                         type="normal"
                         [width]="200"
+                        
                        >
                     </dx-button>
 
