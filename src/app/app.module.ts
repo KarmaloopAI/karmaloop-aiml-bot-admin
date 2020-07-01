@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 // import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 // import {HomeComponent} from './pages/home/home.component';
 import { DxChartModule } from 'devextreme-angular/ui/chart';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -27,6 +28,7 @@ import { DxChartModule } from 'devextreme-angular/ui/chart';
     FooterModule,
     LoginFormModule,
     AppRoutingModule,
+    HttpClientModule,
     // DxDataGridModule,
     DxChartModule
   ],

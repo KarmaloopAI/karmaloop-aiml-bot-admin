@@ -1,3 +1,4 @@
+import { BotService } from './../../shared/services/bot.service';
 import { Component, OnInit } from '@angular/core';
 import { ChartService, Customer} from './../../shared/services/chart.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -13,7 +14,7 @@ export class NewbotComponent implements OnInit {
   customers: Customer[];
   public newBotForm: FormGroup;
 
-  constructor(service: ChartService, private fb: FormBuilder) {
+  constructor(service: ChartService, private fb: FormBuilder,  private botService: BotService) {
     this.Groups = service.getSimpleProducts();
     this.customers =  service.getCustomers();
    }
@@ -30,7 +31,10 @@ export class NewbotComponent implements OnInit {
   public addBot(){
     if (this.newBotForm.valid) {
       const data = this.newBotForm.value;
-      console.log(data);
+      this.botService.post(data).subscribe((res)=> {
+        console.log(res);
+        
+      })
     }
   }
 
