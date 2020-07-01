@@ -1,0 +1,130 @@
+.logos-container {
+  margin: 20px 0 40px 0;
+  text-align: center;
+  svg {
+    display: inline-block;
+  }
+}
+
+.devextreme-logo {
+  width: 200px;
+  height: 34px;
+  margin-bottom: 13px;
+}
+
+.angular-logo {
+  width: 220px;
+  height: 62px;
+}
+
+.plus {
+  margin: 15px 10px;
+  width: 22px;
+  height: 22px;
+}
+
+:host-context(.screen-x-small) .logos-container {
+  svg {
+    width: 100%;
+    display: block;
+    &.plus {
+      margin: 0;
+    }
+  }
+}
+::ng-deep #chart {
+  height: 440px;
+}
+.item1{
+  height: 100px;
+  width: 270px;
+  background: 	#4169E1;
+  margin-left: 25px;
+  margin-top: 18px;
+  border-radius: 4px;
+  
+}
+.icon{
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  float: right;
+   margin-right: 20px;
+  margin-top: -25px;
+}
+.dx-icon-custom-style{
+ 
+ 
+  font-size: 35px;
+  text-align: center;
+  margin-left: 8px;
+  color: #4169E1;
+
+}
+.item2{
+  height: 100px;
+  width: 270px;
+  background: 	#f86363;
+  margin-left: 50px;
+  margin-top: 18px;
+  border-radius: 4px;
+  ;
+  
+}
+.item3{
+  height: 100px;
+  width: 270px;
+  background: 	#fdb837;
+  margin-left: 50px;
+  margin-top: 18px;
+  border-radius: 4px;
+  
+ 
+}
+.item4{
+  height: 100px;
+  width: 270px;
+  background: 	#F08080;
+  margin-left: 50px;
+  margin-top: 18px;
+  border-radius: 4px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width:90%;
+  margin-left: 4%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+h2{
+  margin-left: 4%;
+  
+}
+.blank{
+  font-size: 40px;
+  margin-left: 6px;
+  color: #f86363;
+}
+.card{
+  font-size: 40px;
+  text-align: center;
+  margin-left: 5px;
+  color: #fdb837;
+}
+.setting{
+  font-size: 30px;
+  text-align: center;
+  margin-left: 5px;
+  
+}
+
