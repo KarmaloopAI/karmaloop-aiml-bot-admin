@@ -8,7 +8,7 @@
 module.exports = {
 
   attributes: {
-    IPaddress:{
+    IPAddress:{
       type:'string'
     },
     port:{
