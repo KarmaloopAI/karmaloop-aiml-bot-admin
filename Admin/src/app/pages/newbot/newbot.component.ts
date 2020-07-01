@@ -1,6 +1,6 @@
 import { BotService } from './../../shared/services/bot.service';
 import { Component, OnInit } from '@angular/core';
-import { ChartService, Customer} from './../../shared/services/chart.service';
+import { ChartService, Customer } from './../../shared/services/chart.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
@@ -15,26 +15,28 @@ export class NewbotComponent implements OnInit {
   public newBotForm: FormGroup;
   public validatioMessages: any;
 
-  constructor(service: ChartService, private fb: FormBuilder,  private botService: BotService) {
+  constructor(public  service: ChartService,
+              private fb: FormBuilder,
+              private botService: BotService) {
     this.Groups = service.getSimpleProducts();
-    this.customers =  service.getCustomers();
-   }
+    this.customers = service.getCustomers();
+  }
 
   ngOnInit() {
     this.newBotForm = this.fb.group({
-      ipAddress: this.fb.control('', Validators.required),
-      port:this.fb.control('', [Validators.required, Validators.minLength(4)]),
+      IPAddress: this.fb.control('', Validators.required),
+      port: this.fb.control('', [Validators.required, Validators.minLength(4)]),
       botName: this.fb.control('', Validators.required),
       description: this.fb.control('', Validators.required),
-      group: ['Group B']
+      groupName: ['Group B']
     });
     this.validatioMessages = {
-      ipAddress: [
+      IPAddress: [
         {
           type: 'required',
           message: 'Ip Address is required.'
         }
-       
+
       ],
       port: [
         {
@@ -60,12 +62,12 @@ export class NewbotComponent implements OnInit {
       ]
     };
   }
-  public addBot(){
+  public addBot() {
     if (this.newBotForm.valid) {
       const data = this.newBotForm.value;
-      this.botService.post(data).subscribe((res)=> {
+      this.botService.post(data).subscribe((res) => {
         console.log(res);
-        
+
       })
     }
   }

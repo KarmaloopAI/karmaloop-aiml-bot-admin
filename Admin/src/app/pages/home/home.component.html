@@ -123,28 +123,27 @@ flex-direction:row;">
 <div style="margin: 40px; margin-top: -5px;">
 <dx-data-grid
 id="gridContainer"
-[dataSource]="customers"
+[dataSource]="bots"
 [rowAlternationEnabled]="true"
 [showBorders]="true">
-<dxi-column dataField="Bots" caption="Bots" alignment="right"></dxi-column>
+<dxo-editing
+mode="cell"
+[allowDeleting]="true">
+</dxo-editing>
+<dxi-column dataField="botName" caption="Bots" alignment="right"></dxi-column>
 <dxi-column dataField="Status" caption="Status" alignment="right"></dxi-column>
-<dxi-column dataField="Port" caption="Port" alignment="right"></dxi-column>
-<dxi-column dataField="IpAddress" caption="IpAddress" alignment="right"></dxi-column>
+<dxi-column dataField="port" caption="Port" alignment="right"></dxi-column>
+<dxi-column dataField="IPAddress" caption="IPAddress" alignment="right"></dxi-column>
 <dxi-column dataField="Location" caption="Location" alignment="right"></dxi-column>
-<dxi-column   [width]="150" type="buttons" >
-    <dxi-button  stylingMode="contained"
-    text="Options"
-    type="normal"
-    >
- </dxi-button>
-</dxi-column>
+
+<!-- 
 <dxi-column   [width]="150" type="buttons" >
     <dxi-button  stylingMode="contained"
     text="Details"
     type="normal"
     >
  </dxi-button>
-</dxi-column>
+</dxi-column> -->
 </dx-data-grid>
 </div>
 

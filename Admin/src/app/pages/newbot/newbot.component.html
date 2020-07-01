@@ -6,13 +6,13 @@
      <div class="dx-field">
         <div class="dx-field-label">Server IpAddress</div>
         <div class="dx-field-value">
-            <dx-text-box  placeholder="Server IpAddress" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="ipAddress" ></dx-text-box>
+            <dx-text-box  placeholder="Server IpAddress" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="IPAddress" ></dx-text-box>
         </div>
        
     </div>
-    <ng-container *ngFor="let validation of validatioMessages.ipAddress">
+    <ng-container *ngFor="let validation of validatioMessages.IPAddress">
         <div style="color: red; text-align: center; margin-right: 13px; margin-top: -17px;"
-          *ngIf="newBotForm.get('ipAddress').hasError(validation.type) && (newBotForm.get('ipAddress').dirty || newBotForm.get('ipAddress').touched)">
+          *ngIf="newBotForm.get('IPAddress').hasError(validation.type) && (newBotForm.get('IPAddress').dirty || newBotForm.get('IPAddress').touched)">
           <i class="dx-icon-warning warning" ></i> {{ validation.message }}
         </div>
       </ng-container>
@@ -68,7 +68,7 @@ flex-direction:row;">
                 [showClearButton]="true"
                 stylingMode="outlined"
                 width="27%"
-                formControlName="group"
+                formControlName="groupName"
             ></dx-select-box>
         
 </div>
@@ -106,7 +106,7 @@ flex-direction:row; margin-left: 8px; ">
     
     <div class="top">
        <div class="circle"></div>
-       <span style="margin-left: 10px;margin-right: -15px; color: rgb(160, 152, 152); margin-top: 5px;">{{item.Bots}}</span>
+       <span style="margin-left: 10px;margin-right: -15px; color: rgb(160, 152, 152); margin-top: 5px;">{{item.botName}}</span>
        <span style="margin-top: 18px; margin-left: -25px; color: rgb(160, 152, 152);">Customer Agent Bot</span>
 
     </div>
@@ -114,7 +114,7 @@ flex-direction:row; margin-left: 8px; ">
          <div style="display: flex;
          flex-direction:row; margin-left: 10px; padding-top: 20px;">
              <span> <strong>  Ip Address:</strong> </span>
-             <span style="margin-left: 10px;">{{item.IpAddress}}</span>
+             <span style="margin-left: 10px;">{{item.IPAddress}}</span>
          </div>
          <div style="display: flex;
          flex-direction:row; margin-left: 10px;">
