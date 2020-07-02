@@ -9,9 +9,9 @@
  */
 
 module.exports.routes = {
-    'GET /activeBots' : 'AnalyticsController.conversationChart',
-    'GET /totalConversations' : 'AnalyticsController.conversationChart',
-    'GET /activeChats' : 'AnalyticsController.conversationChart',
+    'GET /activeBots' : 'AnalyticsController.activeBots',
+    'GET /totalConversations' : 'AnalyticsController.totalConversations',
+    'GET /activeChats' : 'AnalyticsController.activeChats',
     'GET /chartdata' : 'AnalyticsController.conversationChart',
 
 };

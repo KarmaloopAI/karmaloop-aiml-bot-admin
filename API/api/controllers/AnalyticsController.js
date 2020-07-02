@@ -8,13 +8,13 @@
 module.exports = {
   
     'activeChats' :function(req, res) {
-        return res.send('5');
+        return res.send(JSON.stringify({count: 5}));
     },
     'activeBots':function(req, res) {
-        return res.send('2');
+        return res.send(JSON.stringify({count: 2}));
     },
     'totalConversations':function(req, res) {
-        return res.send('20');
+        return res.send(JSON.stringify({count: 20}));
     },
     'conversationChart':function(req, res) {
         return res.send();
