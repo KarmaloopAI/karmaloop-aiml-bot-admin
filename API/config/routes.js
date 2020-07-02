@@ -9,6 +9,6 @@
  */
 
 module.exports.routes = {
-
+    'GET /chartdata' : 'MetricsController.chart',
 
 };
