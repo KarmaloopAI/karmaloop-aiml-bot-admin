@@ -12,6 +12,9 @@ import {  DxFormModule } from 'devextreme-angular/ui/form';
 import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 import { DxSelectBoxModule } from 'devextreme-angular/ui/select-box';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DxNumberBoxModule } from 'devextreme-angular/ui/number-box';
+
+
 
 const routes: Routes = [
   
@@ -40,7 +43,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), DxChartModule, CommonModule,DxDataGridModule, DxButtonModule,
-     DxFormModule,DxTextBoxModule,DxSelectBoxModule, FormsModule, ReactiveFormsModule],
+     DxFormModule,DxTextBoxModule,DxSelectBoxModule, FormsModule, ReactiveFormsModule, DxNumberBoxModule],
   providers: [AuthGuardService],
   exports: [RouterModule],
   declarations: [HomeComponent,NewbotComponent]
