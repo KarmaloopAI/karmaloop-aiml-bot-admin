@@ -9,6 +9,9 @@
  */
 
 module.exports.routes = {
-    'GET /chartdata' : 'MetricsController.chart',
+    'GET /activeBots' : 'AnalyticsController.conversationChart',
+    'GET /totalConversations' : 'AnalyticsController.conversationChart',
+    'GET /activeChats' : 'AnalyticsController.conversationChart',
+    'GET /chartdata' : 'AnalyticsController.conversationChart',
 
 };
