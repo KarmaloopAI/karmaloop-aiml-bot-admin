@@ -2,3 +2,4 @@
 # Dependency directories
 ./API/node_modules
 ./Admin/node_modules
+node_modules
