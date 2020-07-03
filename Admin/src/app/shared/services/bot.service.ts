@@ -8,7 +8,7 @@ export class BotService {
 
   constructor(private httpService: HttpProxy) { }
 
-  private readonly url = 'bot';
+  private readonly url = 'bots';
   /**
    * @description Method to retrieve all the bots from the API
    */

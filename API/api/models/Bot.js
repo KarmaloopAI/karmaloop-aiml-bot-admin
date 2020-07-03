@@ -17,11 +17,24 @@ module.exports = {
     description:{
       type: 'string'
     },
+    location:{
+      type: 'string'
+    },
+    status: {
+      type: 'string',
+      isIn: ['Active', 'InActive'],
+      defaultsTo: 'Active'
+    },
     botName:{
       type:'string'
     },
     groupName:{
       type:'string'
+    }, 
+    botId: {
+      type: 'string',
+      required: true,
+      unique: true
     }
 
   },

@@ -10,20 +10,18 @@ module.exports = {
   'activeChats': async function (req, res) {
     const currTimestamp = new Date().getMinutes() - 10;
     var updatedAtRecords = await Analytics.find({
-      select: ['updatedAt']
+      select: ['timestamp']
     });
+    const response = [];
     if (updatedAtRecords) {
-      const response = [];
       updatedAtRecords.forEach(element => {
         const storedTimestamp = new Date(element.updatedAt).getMinutes();
         if ((Math.abs(currTimestamp - storedTimestamp)) > 5) {
           response.push(element);
         }
       });
-      return res.send({ count: response.length })
-    } else {
-      return res.send(JSON.stringify({ 'h': 2 }))
     }
+    return res.send({ count: response.length })
   },
   'activeBots': function (req, res) {
     return res.send(JSON.stringify({ count: 2 }));

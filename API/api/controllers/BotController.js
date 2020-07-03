@@ -6,24 +6,49 @@
  */
 
 module.exports = {
-    'check': async function (req, res) {
-        const currTimestamp = new Date().getMinutes();
-        var updatedAtRecords = await Bot.find({
-            select: ['updatedAt']
+    'getAllBots': async function (req, res) {
+        var response = await Bot.find({
+            select: ['botId', 'IPAddress', 'port', 'description', 'botName', 'groupName', 'status', 'location']
         });
-        if (updatedAtRecords) {
-            const response = [];
-            updatedAtRecords.forEach(element => {
-                const storedTimestamp = new Date(element.updatedAt).getMinutes();
-                if ((Math.abs(currTimestamp - storedTimestamp)) > 5) {
-                    response.push(element);
-                }
-            });
-            return res.send({count:response.length})
+        return res.send(response);
+    },
+    'getBotById': async function (req, res) {
+        var id = req.params.id;
+        var response = await Bot.findOne({
+            id: id
+        });
+        if (response) {
+            return res.status(202).send(response);
         } else {
-            return res.send(JSON.stringify({ 'h': 2 }))
+            return res.status(404).send();
         }
-    }
+    },
+    'submitBotDetails': async function (req, res) {
+        try {
+            var response = await Bot.create(req.body).fetch()
+            return res.status(201).send(response);
+        } catch (error) {
+            if (error.name == 'AdapterError') {
+                if (error.code == 'E_UNIQUE') {
+                    return res.status(400).send({'errMsg': 'Duplicate Bot Id'});
+                }
+            }
+            
+        }
+        
+        
+    },
+    'deletBot': async function (req, res) {
+        var id = req.params.id;
+        var response = await Bot.destroyOne({
+            id: id
+        });
+        if (response) {
+            return res.status(202).send(response);
+        } else {
+            return res.status(404).send();
+        }
+    },
 
 };
 

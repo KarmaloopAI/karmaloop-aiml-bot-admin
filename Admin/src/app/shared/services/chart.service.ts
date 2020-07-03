@@ -108,7 +108,7 @@ let customers: Customer[] = [{
     Location: 'New York',
     View: 'Options',
     Edit: 'Details',
-    IPAddress: '64.57.667.81',
+    IPAddress: '64.57.667.83',
 
 }, {
     botName: 'BOT B',

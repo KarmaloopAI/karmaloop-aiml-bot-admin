@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { BotService } from './../../shared/services/bot.service';
 import { Component, OnInit } from '@angular/core';
 import { ChartService, Customer } from './../../shared/services/chart.service';
@@ -11,25 +12,28 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class NewbotComponent implements OnInit {
   Groups: string[];
-  customers: Customer[];
+  botCard: any[];
   public newBotForm: FormGroup;
   public validatioMessages: any;
 
-  constructor(public  service: ChartService,
+  constructor(public service: ChartService,
               private fb: FormBuilder,
-              private botService: BotService) {
+              private botService: BotService,
+              private router: Router) {
     this.Groups = service.getSimpleProducts();
-    this.customers = service.getCustomers();
   }
 
   ngOnInit() {
+    this.botService.getAllBots().subscribe(res => {
+      this.botCard = res;
+    });
     this.newBotForm = this.fb.group({
       IPAddress: this.fb.control('', Validators.required),
       port: this.fb.control('', [Validators.required, Validators.minLength(4)]),
       botName: this.fb.control('', Validators.required),
       description: this.fb.control('', Validators.required),
       location: this.fb.control('', Validators.required),
-      botID: this.fb.control('', Validators.required),
+      botId: this.fb.control('', Validators.required),
       groupName: ['Group B']
     });
     this.validatioMessages = {
@@ -68,7 +72,7 @@ export class NewbotComponent implements OnInit {
           message: 'Location is required.'
         }
       ],
-      botID: [
+      botId: [
         {
           type: 'required',
           message: 'Bot ID is required.'
@@ -80,9 +84,11 @@ export class NewbotComponent implements OnInit {
     if (this.newBotForm.valid) {
       const data = this.newBotForm.value;
       this.botService.post(data).subscribe((res) => {
-        console.log(res);
-
-      })
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        const url: string = this.router.url;
+        this.router.navigate([`${url}`]);
+      });
     }
   }
 

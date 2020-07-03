@@ -20,6 +20,9 @@ module.exports = {
     userId: {
       type: 'string'
     },
+    timestamp: {
+      type: 'string'
+    }
   }
 
 };
