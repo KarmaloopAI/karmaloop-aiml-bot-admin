@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpProxy } from './http-proxy.service';
 
-export class CountryInfo {
-    country: string;
-    hydro: number;
-    oil: number;
-    gas: number;
-    coal: number;
-    nuclear: number;
+export class TotalConversationInfo {
+    date: string;
+    BOTA: number;
+    BOTB: number;
+    BOTC: number;
+    BOTD: number;
+    BOTE: number;
 }
 
-export class EnergyDescription {
+export class BotsDescription {
     value: string;
     name: string;
 }
@@ -32,6 +33,7 @@ export class newbot {
     View: string;
     Edit: string;
 }
+
 let Groups: string[] = [
     'Group A',
     'Group B',
@@ -46,56 +48,56 @@ let Groups: string[] = [
 ];
 
 
-let energySources: EnergyDescription[] = [
-    { value: 'hydro', name: 'Bot A' },
-    { value: 'oil', name: 'Bot B' },
-    { value: 'gas', name: 'Bot C' },
-    { value: 'coal', name: 'Bot D' },
-    { value: 'nuclear', name: 'Bot E' }
+let botsSources: BotsDescription[] = [
+    { value: 'BOTA', name: 'Bot A' },
+    { value: 'BOTB', name: 'Bot B' },
+    { value: 'BOTC', name: 'Bot C' },
+    { value: 'BOTD', name: 'Bot D' },
+    { value: 'BOTE', name: 'Bot E' }
 ];
 
-let countriesInfo: CountryInfo[] = [{
-    country: '2 jan,Thursday',
-    hydro: 30,
-    oil: 40,
-    gas: 10,
-    coal: 80,
-    nuclear: 35
+let conversationInfo: TotalConversationInfo[] = [{
+    date: '2 jan,Thursday',
+    BOTA: 30,
+    BOTB: 40,
+    BOTC: 10,
+    BOTD: 80,
+    BOTE: 35
 }, {
-    country: '6 jan,Monday ',
-    hydro: 20,
-    oil: 45,
-    gas: 72,
-    coal: 93,
-    nuclear: 11
+    date: '6 jan,Monday ',
+    BOTA: 20,
+    BOTB: 45,
+    BOTC: 72,
+    BOTD: 93,
+    BOTE: 11
 }, {
-    country: '10 jan,Friday',
-    hydro: 40,
-    oil: 28,
-    gas: 61,
-    coal: 100,
-    nuclear: 32
+    date: '10 jan,Friday',
+    BOTA: 40,
+    BOTB: 28,
+    BOTC: 61,
+    BOTD: 100,
+    BOTE: 32
 }, {
-    country: '14 jan,Tuesday',
-    hydro: 22,
-    oil: 41,
-    gas: 64,
-    coal: 20,
-    nuclear: 64
+    date: '14 jan,Tuesday',
+    BOTA: 22,
+    BOTB: 41,
+    BOTC: 64,
+    BOTD: 20,
+    BOTE: 64
 }, {
-    country: '18 jan,Saturday',
-    hydro: 19,
-    oil: 93,
-    gas: 28,
-    coal: 48,
-    nuclear: 38
+    date: '18 jan,Saturday',
+    BOTA: 19,
+    BOTB: 93,
+    BOTC: 28,
+    BOTD: 48,
+    BOTE: 38
 }, {
-    country: '22 jan, Wednesday',
-    hydro: 61,
-    oil: 36,
-    gas: 73,
-    coal: 57,
-    nuclear: 78
+    date: '22 jan, Wednesday',
+    BOTA: 61,
+    BOTB: 36,
+    BOTC: 73,
+    BOTD: 57,
+    BOTE: 78
 }];
 
 let customers: Customer[] = [{
@@ -149,11 +151,11 @@ let customers: Customer[] = [{
     providedIn: 'root'
 })
 export class ChartService {
-    getEnergySources(): EnergyDescription[] {
-        return energySources;
+    getbotsSources(): BotsDescription[] {
+        return botsSources;
     }
-    getCountriesInfo(): CountryInfo[] {
-        return countriesInfo;
+    getCoversationInfo(): TotalConversationInfo[] {
+        return conversationInfo;
     }
     getCustomers() {
         return customers;
@@ -161,5 +163,20 @@ export class ChartService {
     getSimpleProducts(): string[] {
         return Groups;
     }
+    constructor(private httpService: HttpProxy) { }
+    private  url = '';
+    public getAllActiveBots() {
+        return this.httpService.getAsync(this.url ='activeBots');
+      }
+
+      public getAllActiveChats() {
+        return this.httpService.getAsync(this.url ='activeChats');
+      }
+
+      public getAllActiveConversation() {
+        return this.httpService.getAsync(this.url ='totalConversations');
+      }
+
+      
 
 }

@@ -51,6 +51,19 @@
 </div>
 <div style=" margin-left: 10px; padding-top: 10px; ">
     <div class="dx-field">
+        <div class="dx-field-label">Bot ID</div>
+        <div class="dx-field-value">
+            <dx-text-box placeholder="Bot ID" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="botID"></dx-text-box>
+        </div>
+       
+    </div>
+    <ng-container *ngFor="let validation of validatioMessages.botID">
+     <div style="color: red;  text-align: center; margin-right: 13px; margin-top: -17px;"
+       *ngIf="newBotForm.get('botID').hasError(validation.type) && (newBotForm.get('botID').dirty || newBotForm.get('botID').touched)">
+       <i class="dx-icon-warning warning" ></i>  {{ validation.message }}
+     </div>
+   </ng-container> 
+    <div class="dx-field">
        <div class="dx-field-label">Bot Friendly Name</div>
        <div class="dx-field-value">
            <dx-text-box placeholder="Bot Friendly Name" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="botName"></dx-text-box>

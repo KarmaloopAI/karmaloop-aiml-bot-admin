@@ -2,7 +2,7 @@
 flex-direction:row;margin-left: 180px;">
     <div class="item1">
         <div style="padding-top: 20px;" >
-        <span style="color: white; margin-left: 18px; font-size: 20px;  "> 20,000</span>
+        <span style="color: white; margin-left: 18px; font-size: 20px;  ">{{totalConversation}}</span>
         <br><span style="margin-left: 18px;color: white; font-size: 11px; "> Total Conversation</span>
         <div class="icon">
             <div style="margin-top: 6px;">
@@ -14,7 +14,7 @@ flex-direction:row;margin-left: 180px;">
     </div>
     <div class="item2">
         <div style="padding-top: 20px;" >
-        <span style="color: white; margin-left: 18px; font-size: 25px;  "> 6</span>
+        <span style="color: white; margin-left: 18px; font-size: 25px;  "> {{activeBots}}</span>
         <br><span style="margin-left: 18px;color: white; font-size: 14px; "> Active Bots</span>
         <div class="icon">
             <div style="margin-top: 6px;">
@@ -26,7 +26,7 @@ flex-direction:row;margin-left: 180px;">
     </div>
     <div class="item3">
         <div style="padding-top: 20px;" >
-        <span style="color: white; margin-left: 18px; font-size: 25px;  "> 5</span>
+        <span style="color: white; margin-left: 18px; font-size: 25px;  "> {{activeChats}}</span>
         <br><span style="margin-left: 18px;color: white; font-size: 14px; "> Active Chats</span>
         <div class="icon">
             <div style="margin-top: 5px;">
@@ -41,10 +41,10 @@ flex-direction:row;margin-left: 180px;">
 
 
 <div id="chart-demo" style="margin-left: 25px; margin-top: 20px; ">
-    <dx-chart palette="Violet" [dataSource]="countriesInfo">
-        <dxi-series *ngFor="let energy of energySources" [valueField]="energy.value" [name]="energy.name">
+    <dx-chart palette="Violet" [dataSource]="conversationInfo">
+        <dxi-series *ngFor="let bots of botsSources" [valueField]="bots.value" [name]="bots.name">
         </dxi-series>
-        <dxo-common-series-settings #seriesSettings argumentField="country" [type]="'line'">
+        <dxo-common-series-settings #seriesSettings argumentField="date" [type]="'line'">
         </dxo-common-series-settings>
         <dxo-margin [bottom]="20"></dxo-margin>
         <dxo-argument-axis [valueMarginsEnabled]="false" discreteAxisDivisionMode="crossLabels">

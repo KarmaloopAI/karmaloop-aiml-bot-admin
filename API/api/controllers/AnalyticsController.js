@@ -6,19 +6,19 @@
  */
 
 module.exports = {
-  
-    'activeChats' :function(req, res) {
-        return res.send(JSON.stringify({count: 5}));
-    },
-    'activeBots':function(req, res) {
-        return res.send(JSON.stringify({count: 2}));
-    },
-    'totalConversations':function(req, res) {
-        return res.send(JSON.stringify({count: 20}));
-    },
-    'conversationChart':function(req, res) {
-        return res.send();
-    }
+
+  'activeChats': function (req, res) {
+    return res.send(JSON.stringify({ count: 5 }));
+  },
+  'activeBots': function (req, res) {
+    return res.send(JSON.stringify({ count: 2 }));
+  },
+  'totalConversations': function (req, res) {
+    return res.send(JSON.stringify({ count: 20 }));
+  },
+  'conversationChart': function (req, res) {
+    return res.send();
+  }
 
 };
 

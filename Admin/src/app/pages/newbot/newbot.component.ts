@@ -29,6 +29,7 @@ export class NewbotComponent implements OnInit {
       botName: this.fb.control('', Validators.required),
       description: this.fb.control('', Validators.required),
       location: this.fb.control('', Validators.required),
+      botID: this.fb.control('', Validators.required),
       groupName: ['Group B']
     });
     this.validatioMessages = {
@@ -65,6 +66,12 @@ export class NewbotComponent implements OnInit {
         {
           type: 'required',
           message: 'Location is required.'
+        }
+      ],
+      botID: [
+        {
+          type: 'required',
+          message: 'Bot ID is required.'
         }
       ]
     };
