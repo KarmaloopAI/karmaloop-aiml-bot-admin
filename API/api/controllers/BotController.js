@@ -30,13 +30,13 @@ module.exports = {
         } catch (error) {
             if (error.name == 'AdapterError') {
                 if (error.code == 'E_UNIQUE') {
-                    return res.status(400).send({'errMsg': 'Duplicate Bot Id'});
+                    return res.status(400).send({ 'errMsg': 'Duplicate Bot Id' });
                 }
             }
-            
+
         }
-        
-        
+
+
     },
     'deletBot': async function (req, res) {
         var id = req.params.id;
@@ -49,6 +49,15 @@ module.exports = {
             return res.status(404).send();
         }
     },
+    'updateBot': async function (req, res) {
+        var id = req.params.id;
+        var response = await Bot.update({botId: id}).set(req.body).fetch();
+        if (response) {
+            return res.status(202).send(response);
+        } else {
+            return res.status(404).send();
+        }
+    }
 
 };
 

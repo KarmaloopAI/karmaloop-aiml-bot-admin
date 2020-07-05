@@ -84,12 +84,21 @@ export class NewbotComponent implements OnInit {
     if (this.newBotForm.valid) {
       const data = this.newBotForm.value;
       this.botService.post(data).subscribe((res) => {
-        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-        this.router.onSameUrlNavigation = 'reload';
-        const url: string = this.router.url;
-        this.router.navigate([`${url}`]);
+        this.reload();
       });
     }
+  }
+  updateBotData(data, status) {
+    data.status = status;
+    this.botService.updateBotData(data.botId, data).subscribe(res => {
+      this.reload();
+    });
+  }
+  reload() {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    const url: string = this.router.url;
+    this.router.navigate([`${url}`]);
   }
 
 }

@@ -30,11 +30,11 @@ export class HomeComponent implements OnInit {
       load: () => this.getBotsData(),
       remove: (key) => this.deleteBot(key)
     });
-   this. activeBotsdata();
-   this. activeChatsdata();
-   this. allConversation();
-   this. botsDescriptions();
-   this. conversationDays();
+    this.activeBotsdata();
+    this.activeChatsdata();
+    this.allConversation();
+    this.botsDescriptions();
+    this.conversationDays();
 
   }
   getBotsData(): Promise<any> {
@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
       this.botsDescription = res;
       console.log(this.botsDescription);
       return res;
-     
+
     });
   }
 

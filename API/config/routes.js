@@ -16,6 +16,7 @@ module.exports.routes = {
   'GET /bots/:id':'BotController.getBotById',
   'POST /bots': 'BotController.submitBotDetails',
   'DELETE /bots/:id': 'BotController.deletBot',
+  'PUT /bots/:id' : 'BotController.updateBot',
   
   'GET /activeBots': 'AnalyticsController.activeBots',
   'GET /totalConversations': 'AnalyticsController.totalConversations',
