@@ -177,9 +177,9 @@ export class ChartService {
         return this.httpService.getAsync(this.url ='totalConversations');
       }
 
-      public botsDescription() {
-        return this.httpService.getAsync(this.url ='botsdescription');
-      }
+    //   public botsDescription() {
+    //     return this.httpService.getAsync(this.url ='botsdescription');
+    //   }
 
       public totalConversation() {
         return this.httpService.getAsync(this.url ='totalconversation');

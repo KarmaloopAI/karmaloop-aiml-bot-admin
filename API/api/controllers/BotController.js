@@ -34,9 +34,9 @@ module.exports = {
                 }
             }
 
+
+
         }
-
-
     },
     'deletBot': async function (req, res) {
         const id = req.params.id;
@@ -63,12 +63,32 @@ module.exports = {
             } else {
                 return res.status(404).send();
             }
-        } catch(err) {
+        } catch (err) {
             if (err.code === 'E_INVALID_VALUES_TO_SET') {
-                return res.status(400).send({ 'errMsg':'Invalid Status  - Status should be eithier Active or Inactive'})
+                return res.status(400).send({ 'errMsg': 'Invalid Status  - Status should be eithier Active or Inactive' })
             }
         }
-        
+
+    },
+    'deletBot': async function (req, res) {
+        var id = req.params.id;
+        var response = await Bot.destroyOne({
+            id: id
+        });
+        if (response) {
+            return res.status(202).send(response);
+        } else {
+            return res.status(404).send();
+        }
+    },
+    'updateBot': async function (req, res) {
+        var id = req.params.id;
+        var response = await Bot.update({ botId: id }).set(req.body).fetch();
+        if (response) {
+            return res.status(202).send(response);
+        } else {
+            return res.status(404).send();
+        }
     }
 
 };

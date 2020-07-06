@@ -33,29 +33,7 @@ module.exports = {
     return res.send();
   },
 
-  'botsdescription': function (req, res) {
-    return res.send(JSON.stringify([{
-      value: 'BOTA',
-      name: 'Bot A',
 
-    }, {
-      value: 'BOTB',
-      name: 'Bot B',
-    }, {
-      value: 'BOTC',
-      name: 'Bot C',
-    },
-    {
-      value: 'BOTD',
-      name: 'Bot D',
-    },
-    {
-      value: 'BOTE',
-      name: 'Bot E',
-    }
-
-    ]));
-  },
 
   'totalconversation': function (req, res) {
     return res.send(JSON.stringify([{
@@ -100,7 +78,33 @@ module.exports = {
       BOTC: 73,
       BOTD: 57,
       BOTE: 78
+    },
+    {
+
+      botsdesc: [
+        {
+          value: 'BOTA',
+          name: 'Bot A',
+
+        }, {
+          value: 'BOTB',
+          name: 'Bot B',
+        }, {
+          value: 'BOTC',
+          name: 'Bot C',
+        },
+        {
+          value: 'BOTD',
+          name: 'Bot D',
+        },
+        {
+          value: 'BOTE',
+          name: 'Bot E',
+        },
+      ]
+
     }
+
 
     ]));
   },

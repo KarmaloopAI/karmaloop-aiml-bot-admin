@@ -18,8 +18,10 @@ export class HomeComponent implements OnInit {
   public activeBots: any;
   public activeChats: any;
   public totalConversation: any;
-  public botsDescription: any;
+  // public botsDescription: any;
   public conversationbyDays: any;
+  public exam: any;
+  objects : any = [];
   constructor(private service: ChartService, private botService: BotService) {
     // this.conversationInfo = service.getCoversationInfo();
     // this.botsSources = service.getbotsSources();
@@ -33,8 +35,9 @@ export class HomeComponent implements OnInit {
     this.activeBotsdata();
     this.activeChatsdata();
     this.allConversation();
-    this.botsDescriptions();
+    // this.botsDescriptions();
     this.conversationDays();
+    this.example()
 
   }
   getBotsData(): Promise<any> {
@@ -67,20 +70,31 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  private botsDescriptions(): Promise<any> {
-    return this.service.botsDescription().toPromise().then((res) => {
-      this.botsDescription = res;
-      console.log(this.botsDescription);
-      return res;
+  // private botsDescriptions(): Promise<any> {
+  //   return this.service.botsDescription().toPromise().then((res) => {
+  //     this.botsDescription = res;
+  //     console.log(this.botsDescription);
+  //     return res;
 
-    });
-  }
+  //   });
+  // }
 
   private conversationDays(): Promise<any> {
     return this.service.totalConversation().toPromise().then((res) => {
       this.conversationbyDays = res;
       console.log(this.conversationbyDays);
       return res;
+    });
+  }
+  private example(): Promise<any> {
+    return this.service.totalConversation().toPromise().then((res) => {
+      this.exam = res[res.length - 1].botsdesc;
+      // this.exam = this.objects;
+      console.log(this.exam);
+     
+     
+
+      return this.exam;
     });
   }
 

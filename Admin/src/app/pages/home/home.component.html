@@ -42,7 +42,7 @@ flex-direction:row;margin-left: 180px;">
 
 <div id="chart-demo" style="margin-left: 25px; margin-top: 20px; ">
     <dx-chart palette="Violet" [dataSource]="conversationbyDays">
-        <dxi-series *ngFor="let bots of botsDescription" [valueField]="bots.value" [name]="bots.name">
+        <dxi-series *ngFor="let bots of exam " [valueField]="bots.value " [name]="bots.name">
         </dxi-series>
         <dxo-common-series-settings #seriesSettings argumentField="date" [type]="'line'">
         </dxo-common-series-settings>
