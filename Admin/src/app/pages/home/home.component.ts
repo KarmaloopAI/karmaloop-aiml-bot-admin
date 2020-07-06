@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
     this.allConversation();
     // this.botsDescriptions();
     this.conversationDays();
+    this.example()
 
   }
   getBotsData(): Promise<any> {
