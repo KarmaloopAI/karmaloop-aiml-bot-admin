@@ -171,12 +171,13 @@ flex-direction:row; margin-left: 8px; ">
     </div>
     <div style="display: flex;
     flex-direction:row; margin-left: 20px; margin-top: 20px;">
-        <div class="cir"></div>
+        <div class="cir" [ngStyle]="item.status ==='Active' ? {'background-color': 'green'} : {'background-color': 'red'}"></div>
         <span style="margin-left: 10px; margin-top: -2px;"> {{item.status}}</span>
     </div>
     <div style="display: flex;
     flex-direction:row;margin-top: 12px; margin-left: 12px;">
         <dx-button class="undo"
+        (click)= "updateBotData(item,'Active')"
         icon="undo"
         type="Normal"
         text="Restart"
@@ -184,6 +185,7 @@ flex-direction:row; margin-left: 8px; ">
     </dx-button>
     <div style="margin-left: 5px;">
     <dx-button class="undo"
+    (click)= "updateBotData(item, 'InActive')"
     icon="clear"
     type="Normal"
     text="Shutdown"

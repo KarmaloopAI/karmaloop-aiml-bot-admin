@@ -8,15 +8,16 @@
  * https://sailsjs.com/anatomy/config/routes-js
  */
 
-module.exports.routes = { 
+module.exports.routes = {
 
 
 
   'GET /bots': 'BotController.getAllBots',
-  'GET /bots/:id':'BotController.getBotById',
+  'GET /bots/:id': 'BotController.getBotById',
   'POST /bots': 'BotController.submitBotDetails',
   'DELETE /bots/:id': 'BotController.deletBot',
-  
+  'PUT /bots/:id': 'BotController.updateBot',
+
   'GET /activeBots': 'AnalyticsController.activeBots',
   'GET /totalConversations': 'AnalyticsController.totalConversations',
   'GET /activeChats': 'AnalyticsController.activeChats',

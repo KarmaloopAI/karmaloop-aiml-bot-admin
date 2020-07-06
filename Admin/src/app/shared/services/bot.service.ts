@@ -30,4 +30,11 @@ export class BotService {
   public deleteBot(id: any) {
     return this.httpService.deleteAsync(this.url+ '/' + id);
   }
+  /**
+   * @description Method to update the bot Data
+   * @param id The id of the bot which is to updated
+   */
+  public updateBotData(id: any, botData: any) {
+    return this.httpService.putAsync(`${this.url}/${id}`, botData);
+  }
 }

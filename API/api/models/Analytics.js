@@ -9,6 +9,11 @@ module.exports = {
 
   attributes: {
     botId: {
+      type: 'string',
+      required: true,
+      unique: true
+    },
+    botName: {
       type: 'string'
     },
     botReply: {
