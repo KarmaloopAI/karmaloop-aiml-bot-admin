@@ -17,17 +17,24 @@ module.exports = {
       type: 'string'
     },
     botReply: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
     userReply: {
-      type: 'string'
+      type: 'string',
+      required: true
+
     },
     userId: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
     timestamp: {
-      type: 'string'
-    }
+      type:'ref',
+      columnType: 'timestamp',
+      required: true,
+      defaultsTo: new Date()
+    },
   }
 
 };
