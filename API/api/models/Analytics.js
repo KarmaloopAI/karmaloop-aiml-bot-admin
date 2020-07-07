@@ -11,10 +11,6 @@ module.exports = {
     botId: {
       type: 'string',
       required: true,
-      unique: true
-    },
-    botName: {
-      type: 'string'
     },
     botReply: {
       type: 'string',
@@ -30,9 +26,8 @@ module.exports = {
       required: true
     },
     timestamp: {
-      type:'ref',
+      type: 'ref',
       columnType: 'timestamp',
-      required: true,
       defaultsTo: new Date()
     },
   }

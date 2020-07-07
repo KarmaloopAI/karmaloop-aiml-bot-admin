@@ -8,20 +8,13 @@
 module.exports = {
 
   'activeChats': async function (req, res) {
-    const currTimestamp = new Date().getMinutes() - 10;
+    const currTimestamp = new Date();
+    const previousFiveMin = new Date(currTimestamp);
+    previousFiveMin.setMinutes(currTimestamp.getMinutes() - 5);
     var updatedAtRecords = await Analytics.find({
-      select: ['timestamp']
+      timestamp: { '>': currTimestamp }, timestamp: { '<': previousFiveMin }, 
     });
-    const response = [];
-    if (updatedAtRecords) {
-      updatedAtRecords.forEach(element => {
-        const storedTimestamp = new Date(element.updatedAt).getMinutes();
-        if ((Math.abs(currTimestamp - storedTimestamp)) > 5) {
-          response.push(element);
-        }
-      });
-    }
-    return res.send({ count: response.length })
+    return res.send({count: updatedAtRecords.length})
   },
   'activeBots': function (req, res) {
     return res.send(JSON.stringify({ count: 2 }));
@@ -33,8 +26,14 @@ module.exports = {
     return res.send();
   },
 
-
-
+  'submitAnalytics': async function(req, res ){
+    try{
+      const response = await Analytics.create(req.body).fetch()
+      return res.status(201).send(response);
+    } catch (err) {
+      return res.status(400).send(err);
+    }
+  },
   'totalconversation': function (req, res) {
     return res.send(JSON.stringify([{
       date: '2 jan,Thursday',
