@@ -9,4 +9,9 @@ export const navigation = [
     path: '/newbot',
     icon: 'newfolder'
   },
+  {
+    text: 'Conversations',
+    path: '/conversation',
+    icon: 'newfolder'
+  }
 ];

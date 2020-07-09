@@ -21,9 +21,13 @@ module.exports.routes = {
   'GET /activeBots': 'AnalyticsController.activeBots',
   'GET /totalConversations': 'AnalyticsController.totalConversations',
   'GET /activeChats': 'AnalyticsController.activeChats',
-  'GET /totalconversation': 'AnalyticsController.submitAnalytics',
+
+  'POST /conversation': 'AnalyticsController.submitAnalytics',
+
+  'GET /analyticByBotId/:id': 'AnalyticsController.getAnalyticsByBotId',
+  'GET /chartData': 'AnalyticsController.conversationChart',
   
-  'POST /conversation': 'AnalyticsController.submitAnalytics'
+  
 
 
 };

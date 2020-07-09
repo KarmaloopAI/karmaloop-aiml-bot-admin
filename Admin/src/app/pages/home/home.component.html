@@ -1,48 +1,48 @@
 <div style="display: flex;
 flex-direction:row;margin-left: 180px;">
     <div class="item1">
-        <div style="padding-top: 20px;" >
-        <span style="color: white; margin-left: 18px; font-size: 20px;  ">{{totalConversation}}</span>
-        <br><span style="margin-left: 18px;color: white; font-size: 11px; "> Total Conversation</span>
-        <div class="icon">
-            <div style="margin-top: 6px;">
-            <i class="dx-icon-user dx-icon-custom-style" ></i>
+        <div style="padding-top: 20px;">
+            <span style="color: white; margin-left: 18px; font-size: 20px;  ">{{totalConversation}}</span>
+            <br><span style="margin-left: 18px;color: white; font-size: 11px; "> Total Conversation</span>
+            <div class="icon">
+                <div style="margin-top: 6px;">
+                    <i class="dx-icon-user dx-icon-custom-style"></i>
+                </div>
+            </div>
         </div>
-        </div>
-        </div>
-       
+
     </div>
     <div class="item2">
-        <div style="padding-top: 20px;" >
-        <span style="color: white; margin-left: 18px; font-size: 25px;  "> {{activeBots}}</span>
-        <br><span style="margin-left: 18px;color: white; font-size: 14px; "> Active Bots</span>
-        <div class="icon">
-            <div style="margin-top: 6px;">
-            <i class="dx-icon-group blank" ></i>
+        <div style="padding-top: 20px;">
+            <span style="color: white; margin-left: 18px; font-size: 25px;  "> {{activeBots}}</span>
+            <br><span style="margin-left: 18px;color: white; font-size: 14px; "> Active Bots</span>
+            <div class="icon">
+                <div style="margin-top: 6px;">
+                    <i class="dx-icon-group blank"></i>
+                </div>
+            </div>
         </div>
-        </div>
-        </div>
-       
+
     </div>
     <div class="item3">
-        <div style="padding-top: 20px;" >
-        <span style="color: white; margin-left: 18px; font-size: 25px;  "> {{activeChats}}</span>
-        <br><span style="margin-left: 18px;color: white; font-size: 14px; "> Active Chats</span>
-        <div class="icon">
-            <div style="margin-top: 5px;">
-            <i class="dx-icon-card card" ></i>
+        <div style="padding-top: 20px;">
+            <span style="color: white; margin-left: 18px; font-size: 25px;  "> {{activeChats}}</span>
+            <br><span style="margin-left: 18px;color: white; font-size: 14px; "> Active Chats</span>
+            <div class="icon">
+                <div style="margin-top: 5px;">
+                    <i class="dx-icon-card card"></i>
+                </div>
+            </div>
         </div>
-        </div>
-        </div>
-       
+
     </div>
-    
+
 </div>
 
 
 <div id="chart-demo" style="margin-left: 25px; margin-top: 20px; ">
     <dx-chart palette="Violet" [dataSource]="conversationbyDays">
-        <dxi-series *ngFor="let bots of exam " [valueField]="bots.value " [name]="bots.name">
+        <dxi-series *ngFor="let bots of chartBot " [valueField]="bots.value " [name]="bots.name">
         </dxi-series>
         <dxo-common-series-settings #seriesSettings argumentField="date" [type]="'line'">
         </dxo-common-series-settings>
@@ -52,8 +52,8 @@ flex-direction:row;margin-left: 180px;">
         </dxo-argument-axis>
         <dxo-legend verticalAlignment="bottom" horizontalAlignment="center" itemTextPosition="bottom">
         </dxo-legend>
-        <dxo-title text="Total Conversation in Jan">
-            <dxo-subtitle text="(Number of conversation, Five Bots)">
+        <dxo-title text="Total Conversation for {{conversationbyDays.length}} day(s)">
+            <dxo-subtitle text="(Number of conversation, {{chartBot.length}} Bots)">
             </dxo-subtitle>
         </dxo-title>
     </dx-chart>
@@ -61,99 +61,23 @@ flex-direction:row;margin-left: 180px;">
 
 <div style="display: flex;
 flex-direction:row;">
-<h2>REGISTERED BOTS</h2>
-<div style="background-color:rgb(173, 170, 170) ; width: 40px; height: 30px; border-radius: 5px; position: absolute; right: 0px; margin-right: 40px; margin-top: 40px;">
-    <div >
-        <i class="dx-icon-preferences setting " ></i>
+    <h2>REGISTERED BOTS</h2>
+    <div
+        style="background-color:rgb(173, 170, 170) ; width: 40px; height: 30px; border-radius: 5px; position: absolute; right: 0px; margin-right: 40px; margin-top: 40px;">
+        <div>
+            <i class="dx-icon-preferences setting "></i>
+        </div>
     </div>
 </div>
-</div>
-
-<!-- <table >
-  <tr>
-    <th>Bots</th>
-    <th>Status</th>
-    <th>Port</th>
-    <th>Location</th>
-    <th style="width: 30px;">View</th>
-    <th style="width: 30px;">Edit</th>
-  </tr>
-  <tr>
-    <td>BOT A</td>
-    <td>13 Aug, 2018<br>Active</td>
-    <td>22.54.667.81<br>Port:8888</td>
-    <td>New York</td>
-    <td><div style="width: 100px; height: 40px; background-color: rgb(173, 170, 170); text-align: center; font-size: 15px; margin-top: 5px; border-radius: 3px;">Options</div></td>
-    <td><div style="width: 100px; height: 40px; background-color: rgb(173, 170, 170); text-align: center; font-size: 15px; margin-top: 5px;border-radius: 3px;">Details</div></td>
-  </tr>
-  <tr>
-    <td>BOT B</td>
-    <td>13 Aug, 2018<br>Unreachable</td>
-    <td>22.54.667.82<br>Port:8888</td>
-    <td>Ontario</td>
-    <td><div style="width: 100px; height: 40px; background-color: rgb(173, 170, 170); text-align: center; font-size: 15px; margin-top: 5px;border-radius: 3px;">Options</div></td>
-    <td><div style="width: 100px; height: 40px; background-color: rgb(173, 170, 170); text-align: center; font-size: 15px; margin-top: 5px;border-radius: 3px;">Details</div></td>
-  </tr>
-  <tr>
-    <td>BOT C</td>
-    <td>13 Aug, 2018<br>Active</td>
-    <td>22.54.667.82<br>Port:8889</td>
-    <td>Milan</td>
-    <td><div style="width: 100px; height: 40px; background-color: rgb(173, 170, 170); text-align: center; font-size: 15px; margin-top: 5px;border-radius: 3px;">Options</div></td>
-    <td><div style="width: 100px; height: 40px; background-color: rgb(173, 170, 170); text-align: center; font-size: 15px; margin-top: 5px;border-radius: 3px;">Details</div></td>
-  </tr>
-  <tr>
-    <td>BOT D</td>
-    <td>13 Aug, 2018<br>Active</td>
-    <td>22.54.667.83<br>Port:8888</td>
-    <td>Las Vegas</td>
-    <td><div style="width: 100px; height: 40px; background-color: rgb(173, 170, 170); text-align: center; font-size: 15px; margin-top: 5px;border-radius: 3px;">Options</div></td>
-    <td><div style="width: 100px; height: 40px; background-color: rgb(173, 170, 170); text-align: center; font-size: 15px; margin-top: 5px;border-radius: 3px;">Details</div></td>
-  </tr>
-  <tr>
-    <td>BOT X</td>
-    <td>13 Aug, 2018<br>Inactive</td>
-    <td>22.54.667.81<br>Port:8889</td>
-    <td>San Francisco</td>
-    <td><div style="width: 100px; height: 40px; background-color: rgb(173, 170, 170); text-align: center; font-size: 15px; margin-top: 5px;border-radius: 3px;">Options</div></td>
-    <td><div style="width: 100px; height: 40px; background-color: rgb(173, 170, 170); text-align: center; font-size: 15px; margin-top: 5px;border-radius: 3px;">Details</div></td>
-  </tr>
-  
-</table> -->
 <div style="margin: 40px; margin-top: -5px;">
-<dx-data-grid
-id="gridContainer"
-[dataSource]="bots"
-[rowAlternationEnabled]="true"
-[showBorders]="true">
-<dxo-editing
-mode="cell"
-[allowDeleting]="true">
-</dxo-editing>
-<dxi-column dataField="botName" caption="Bots" alignment="right"></dxi-column>
-<dxi-column dataField="Status" caption="Status" alignment="right"></dxi-column>
-<dxi-column dataField="port" caption="Port" alignment="right"></dxi-column>
-<dxi-column dataField="IPAddress" caption="IPAddress" alignment="right"></dxi-column>
-<dxi-column dataField="Location" caption="Location" alignment="right"></dxi-column>
-
-<!-- 
-<dxi-column   [width]="150" type="buttons" >
-    <dxi-button  stylingMode="contained"
-    text="Details"
-    type="normal"
-    >
- </dxi-button>
-</dxi-column> -->
-</dx-data-grid>
+    <dx-data-grid id="gridContainer" [dataSource]="bots" [rowAlternationEnabled]="true" [showBorders]="true">
+        <dxo-editing mode="cell" [allowDeleting]="true">
+        </dxo-editing>
+        <dxi-column dataField="botName" caption="Bots" alignment="left"></dxi-column>
+        <dxi-column dataField="status" caption="Status" alignment="right">
+        </dxi-column>
+        <dxi-column dataField="port" caption="Port" alignment="right"></dxi-column>
+        <dxi-column dataField="IPAddress" caption="IPAddress" alignment="right"></dxi-column>
+        <dxi-column dataField="location" caption="Location" alignment="right"></dxi-column>
+    </dx-data-grid>
 </div>
-
-
-
-
-
-
-
-
-
-
-

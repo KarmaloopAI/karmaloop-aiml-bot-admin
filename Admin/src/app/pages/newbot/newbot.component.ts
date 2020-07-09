@@ -1,9 +1,9 @@
 import { Router } from '@angular/router';
 import { BotService } from './../../shared/services/bot.service';
 import { Component, OnInit } from '@angular/core';
-import { ChartService, Customer } from './../../shared/services/chart.service';
+import { ChartService } from './../../shared/services/chart.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { confirm } from 'devextreme/ui/dialog';
 
 @Component({
   selector: 'app-newbot',
@@ -17,10 +17,22 @@ export class NewbotComponent implements OnInit {
   public validatioMessages: any;
 
   constructor(public service: ChartService,
-              private fb: FormBuilder,
-              private botService: BotService,
-              private router: Router) {
-    this.Groups = service.getSimpleProducts();
+    private fb: FormBuilder,
+    private botService: BotService,
+    private router: Router) {
+    this.Groups = [
+      'Group A',
+      'Group B',
+      'Group C',
+      'Group D',
+      'Group E',
+      'Group F',
+      'Group G',
+      'Group H',
+      'Group I',
+
+    ];
+
   }
 
   ngOnInit() {
@@ -89,9 +101,14 @@ export class NewbotComponent implements OnInit {
     }
   }
   updateBotData(data, status) {
-    data.status = status;
-    this.botService.updateBotData(data.botId, data).subscribe(res => {
-      this.reload();
+    const result = confirm('Are you sure? <br> Note: You need to manually restart ' + data.botName, 'Confirm changes');
+    result.then((dialogResult) => {
+      if (dialogResult) {
+        data.status = status;
+        this.botService.updateBotData(data.botId, data).subscribe(res => {
+          this.reload();
+        });
+      }
     });
   }
   reload() {

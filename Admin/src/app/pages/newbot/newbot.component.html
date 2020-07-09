@@ -1,203 +1,185 @@
 <div style="margin-left: 20px;">
-<p>Connect a New Bot</p>
-<div>
-    <form [formGroup]="newBotForm">
-<div style=" margin-left: 10px; ">
-     <div class="dx-field">
-        <div class="dx-field-label">Server IpAddress</div>
-        <div class="dx-field-value">
-            <dx-text-box  placeholder="Server IpAddress" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="IPAddress" ></dx-text-box>
-        </div>
-       
-    </div>
-    <ng-container *ngFor="let validation of validatioMessages.IPAddress">
-        <div style="color: red; text-align: center; margin-right: 13px; margin-top: -17px;"
-          *ngIf="newBotForm.get('IPAddress').hasError(validation.type) && (newBotForm.get('IPAddress').dirty || newBotForm.get('IPAddress').touched)">
-          <i class="dx-icon-warning warning" ></i> {{ validation.message }}
-        </div>
-      </ng-container>
-    <div class="dx-field">
-        <div class="dx-field-label">Port</div>
-        <div class="dx-field-value">
-            <dx-number-box placeholder="Port" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="port"></dx-number-box>
-        </div>
-            
+    <p>Connect a New Bot</p>
+    <div>
+        <form [formGroup]="newBotForm">
+            <div style=" margin-left: 10px; ">
+                <div class="dx-field">
+                    <div class="dx-field-label">Server IpAddress</div>
+                    <div class="dx-field-value">
+                        <dx-text-box placeholder="Server IpAddress" stylingMode="outlined" [showClearButton]="true"
+                            [height]="40" formControlName="IPAddress"></dx-text-box>
+                    </div>
 
-    </div>
-    <ng-container *ngFor="let validation of validatioMessages.port">
-        <div style="color: red;  text-align: center; margin-right:40px; margin-top: -17px;"
-          *ngIf="newBotForm.get('port').hasError(validation.type) && (newBotForm.get('port').dirty || newBotForm.get('port').touched)">
-          <i class="dx-icon-warning warning" ></i> {{ validation.message }}
-        </div>
-      </ng-container>  
-       
-</div>
-<div style=" margin-left: 10px; padding-top: 10px; ">
-    <div class="dx-field">
-       <div class="dx-field-label">Location</div>
-       <div class="dx-field-value">
-           <dx-text-box  placeholder="Location" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="location" ></dx-text-box>
-       </div>
-      
-   </div>
-   <ng-container *ngFor="let validation of validatioMessages.location">
-       <div style="color: red; text-align: center; margin-right: 13px; margin-top: -17px;"
-         *ngIf="newBotForm.get('location').hasError(validation.type) && (newBotForm.get('location').dirty || newBotForm.get('location').touched)">
-         <i class="dx-icon-warning warning" ></i> {{ validation.message }}
-       </div>
-     </ng-container>
-  
-      
-</div>
-<div style=" margin-left: 10px; padding-top: 10px; ">
-    <div class="dx-field">
-        <div class="dx-field-label">Bot ID</div>
-        <div class="dx-field-value">
-            <dx-text-box placeholder="Bot ID" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="botId"></dx-text-box>
-        </div>
-       
-    </div>
-    <ng-container *ngFor="let validation of validatioMessages.botId">
-     <div style="color: red;  text-align: center; margin-right: 13px; margin-top: -17px;"
-       *ngIf="newBotForm.get('botId').hasError(validation.type) && (newBotForm.get('botId').dirty || newBotForm.get('botId').touched)">
-       <i class="dx-icon-warning warning" ></i>  {{ validation.message }}
-     </div>
-   </ng-container> 
-    <div class="dx-field">
-       <div class="dx-field-label">Bot Friendly Name</div>
-       <div class="dx-field-value">
-           <dx-text-box placeholder="Bot Friendly Name" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="botName"></dx-text-box>
-       </div>
-      
-   </div>
-   <ng-container *ngFor="let validation of validatioMessages.botName">
-    <div style="color: red;  text-align: center; margin-right: 13px; margin-top: -17px;"
-      *ngIf="newBotForm.get('botName').hasError(validation.type) && (newBotForm.get('botName').dirty || newBotForm.get('botName').touched)">
-      <i class="dx-icon-warning warning" ></i>  {{ validation.message }}
-    </div>
-  </ng-container> 
-   <div class="dx-field">
-       <div class="dx-field-label">Description</div>
-       <div class="dx-field-value">
-           <dx-text-box placeholder="Description" stylingMode="outlined" [showClearButton]="true" [height]="40" formControlName="description"></dx-text-box>
-       </div>
-      
-   </div>
-   <ng-container *ngFor="let validation of validatioMessages.description">
-    <div style="color: red;  text-align: center; margin-right: 13px; margin-top: -17px;"
-      *ngIf="newBotForm.get('description').hasError(validation.type) && (newBotForm.get('description').dirty || newBotForm.get('description').touched)">
-      <i class="dx-icon-warning warning" ></i>   {{ validation.message }}
-    </div>
-  </ng-container> 
-</div>
-<div style="margin-left: 10px;margin-top: 15px; display: flex;
+                </div>
+                <ng-container *ngFor="let validation of validatioMessages.IPAddress">
+                    <div style="color: red; text-align: center; margin-right: 13px; margin-top: -17px;"
+                        *ngIf="newBotForm.get('IPAddress').hasError(validation.type) && (newBotForm.get('IPAddress').dirty || newBotForm.get('IPAddress').touched)">
+                        <i class="dx-icon-warning warning"></i> {{ validation.message }}
+                    </div>
+                </ng-container>
+                <div class="dx-field">
+                    <div class="dx-field-label">Port</div>
+                    <div class="dx-field-value">
+                        <dx-number-box placeholder="Port" stylingMode="outlined" [showClearButton]="true" [height]="40"
+                            formControlName="port"></dx-number-box>
+                    </div>
+
+
+                </div>
+                <ng-container *ngFor="let validation of validatioMessages.port">
+                    <div style="color: red;  text-align: center; margin-right:40px; margin-top: -17px;"
+                        *ngIf="newBotForm.get('port').hasError(validation.type) && (newBotForm.get('port').dirty || newBotForm.get('port').touched)">
+                        <i class="dx-icon-warning warning"></i> {{ validation.message }}
+                    </div>
+                </ng-container>
+
+            </div>
+            <div style=" margin-left: 10px; padding-top: 10px; ">
+                <div class="dx-field">
+                    <div class="dx-field-label">Location</div>
+                    <div class="dx-field-value">
+                        <dx-text-box placeholder="Location" stylingMode="outlined" [showClearButton]="true"
+                            [height]="40" formControlName="location"></dx-text-box>
+                    </div>
+
+                </div>
+                <ng-container *ngFor="let validation of validatioMessages.location">
+                    <div style="color: red; text-align: center; margin-right: 13px; margin-top: -17px;"
+                        *ngIf="newBotForm.get('location').hasError(validation.type) && (newBotForm.get('location').dirty || newBotForm.get('location').touched)">
+                        <i class="dx-icon-warning warning"></i> {{ validation.message }}
+                    </div>
+                </ng-container>
+
+
+            </div>
+            <div style=" margin-left: 10px; padding-top: 10px; ">
+                <div class="dx-field">
+                    <div class="dx-field-label">Bot ID</div>
+                    <div class="dx-field-value">
+                        <dx-text-box placeholder="Bot ID" stylingMode="outlined" [showClearButton]="true" [height]="40"
+                            formControlName="botId"></dx-text-box>
+                    </div>
+
+                </div>
+                <ng-container *ngFor="let validation of validatioMessages.botId">
+                    <div style="color: red;  text-align: center; margin-right: 13px; margin-top: -17px;"
+                        *ngIf="newBotForm.get('botId').hasError(validation.type) && (newBotForm.get('botId').dirty || newBotForm.get('botId').touched)">
+                        <i class="dx-icon-warning warning"></i> {{ validation.message }}
+                    </div>
+                </ng-container>
+                <div class="dx-field">
+                    <div class="dx-field-label">Bot Friendly Name</div>
+                    <div class="dx-field-value">
+                        <dx-text-box placeholder="Bot Friendly Name" stylingMode="outlined" [showClearButton]="true"
+                            [height]="40" formControlName="botName"></dx-text-box>
+                    </div>
+
+                </div>
+                <ng-container *ngFor="let validation of validatioMessages.botName">
+                    <div style="color: red;  text-align: center; margin-right: 13px; margin-top: -17px;"
+                        *ngIf="newBotForm.get('botName').hasError(validation.type) && (newBotForm.get('botName').dirty || newBotForm.get('botName').touched)">
+                        <i class="dx-icon-warning warning"></i> {{ validation.message }}
+                    </div>
+                </ng-container>
+                <div class="dx-field">
+                    <div class="dx-field-label">Description</div>
+                    <div class="dx-field-value">
+                        <dx-text-box placeholder="Description" stylingMode="outlined" [showClearButton]="true"
+                            [height]="40" formControlName="description"></dx-text-box>
+                    </div>
+
+                </div>
+                <ng-container *ngFor="let validation of validatioMessages.description">
+                    <div style="color: red;  text-align: center; margin-right: 13px; margin-top: -17px;"
+                        *ngIf="newBotForm.get('description').hasError(validation.type) && (newBotForm.get('description').dirty || newBotForm.get('description').touched)">
+                        <i class="dx-icon-warning warning"></i> {{ validation.message }}
+                    </div>
+                </ng-container>
+            </div>
+            <div style="margin-left: 10px;margin-top: 15px; display: flex;
 flex-direction:row;">
-    <div class="dx-field-label">Category</div>
-    <dx-select-box
-                [items]="Groups"
-                placeholder="Group"
-                [showClearButton]="true"
-                stylingMode="outlined"
-                width="27%"
-                formControlName="groupName"
-            ></dx-select-box>
-        
-</div>
-<div style="display: flex;
+                <div class="dx-field-label">Category</div>
+                <dx-select-box [items]="Groups" placeholder="Group" [showClearButton]="true" stylingMode="outlined"
+                    width="27%" formControlName="groupName"></dx-select-box>
+
+            </div>
+            <div style="display: flex;
 flex-direction:row; margin-left: 8px; ">
-    <div style="margin-top: 40px;">
-        <dx-button class="btn1"
-                        stylingMode="contained"
-                        text="Verify and Add"
-                        type="normal"
-                        [width]="200"
-                        (onClick)="addBot()"
-                        [disabled]="!newBotForm.valid"
-                       >
+                <div style="margin-top: 40px;">
+                    <dx-button class="btn1" stylingMode="contained" text="Verify and Add" type="normal" [width]="200"
+                        (onClick)="addBot()" [disabled]="!newBotForm.valid">
                     </dx-button>
 
-    </div>
-    <div style="margin-top: 40px; margin-left: 15px;">
-        <dx-button class="btn2"
-                        stylingMode="outlined"
-                        text="Clear"
-                        type="normal"
-                        [width]="200"
-                        
-                       >
+                </div>
+                <div style="margin-top: 40px; margin-left: 15px;">
+                    <dx-button class="btn2" stylingMode="outlined" text="Clear" type="normal" [width]="200">
                     </dx-button>
 
+                </div>
+            </div>
+        </form>
     </div>
-</div>
-</form>
-</div>
-<div style="  border-bottom: 2px solid rgb(160, 152, 152);margin-top: 20px; width: 95%;"></div>
-<div style="float: left; margin-left: 8px;" *ngFor="let item of botCard">
-<div class="card">
-    
-    <div class="top">
-       <div class="circle"></div>
-       <span style="margin-left: 10px;margin-right: -15px; color: rgb(160, 152, 152); margin-top: 5px;">{{item.botName}}</span>
-       <span style="margin-top: 18px; margin-left: -25px; color: rgb(160, 152, 152);">Customer Agent Bot</span>
+    <div style="  border-bottom: 2px solid rgb(160, 152, 152);margin-top: 20px; width: 95%;"></div>
+    <div style="float: left; margin-left: 8px;" *ngFor="let item of botCard">
+        <div class="card">
 
-    </div>
-    <div class="middle">
-         <div style="display: flex;
+            <div class="top">
+                <div class="circle"></div>
+                <span
+                    style="margin-left: 10px;margin-right: -15px; color: rgb(160, 152, 152); margin-top: 5px;">{{item.botName}}</span>
+                <span style="margin-top: 18px; margin-left: -25px; color: rgb(160, 152, 152);">Customer Agent Bot</span>
+
+            </div>
+            <div class="middle">
+                <div style="display: flex;
          flex-direction:row; margin-left: 10px; padding-top: 20px;">
-             <span> <strong>  Ip Address:</strong> </span>
-             <span style="margin-left: 10px;">{{item.IPAddress}}</span>
-         </div>
-         <div style="display: flex;
+                    <span> <strong> Ip Address:</strong> </span>
+                    <span style="margin-left: 10px;">{{item.IPAddress}}</span>
+                </div>
+                <div style="display: flex;
          flex-direction:row; margin-left: 10px;">
-             <span> <strong>  Port:</strong> </span>
-             <span style="margin-left: 50px;">{{item.port}}</span>
-         </div>
-         <div style="display: flex;
+                    <span> <strong> Port:</strong> </span>
+                    <span style="margin-left: 50px;">{{item.port}}</span>
+                </div>
+                <div style="display: flex;
          flex-direction:row; margin-left: 10px;">
-             <span> <strong>  Last Active:</strong> </span>
-             <span style="margin-left: 10px;">Now</span>
-         </div>
-         <div style="display: flex;
+                    <span> <strong> Last Active:</strong> </span>
+                    <span style="margin-left: 10px;">Now</span>
+                </div>
+                <div style="display: flex;
          flex-direction:row; margin-left: 10px;">
-             <span> <strong>  Activity:</strong> </span>
-             <span style="margin-left: 25px;">{{item.status}}</span>
-         </div>
-         <div style="display: flex;
+                    <span> <strong> Activity:</strong> </span>
+                    <span style="margin-left: 25px;">{{item.status}}</span>
+                </div>
+                <div style="display: flex;
          flex-direction:row; margin-left: 10px;">
-             <span> <strong>  Chat URL:</strong> </span>
-             <span style="margin-left: 15px;">http://{{item.IPAddress}}/chatui/url</span>
-         </div>
-         
-    </div>
-    <div style="display: flex;
+                    <span> <strong> Chat URL:</strong> </span>
+                    <span style="margin-left: 15px;">http://{{item.IPAddress}}/chatui/url</span>
+                </div>
+
+            </div>
+            <div style="display: flex;
     flex-direction:row; margin-left: 20px; margin-top: 20px;">
-        <div class="cir" [ngStyle]="item.status ==='Active' ? {'background-color': 'green'} : {'background-color': 'red'}"></div>
-        <span style="margin-left: 10px; margin-top: -2px;"> {{item.status}}</span>
-    </div>
-    <div style="display: flex;
+                <div class="cir"
+                    [ngStyle]="item.status ==='Active' ? {'background-color': 'green'} : {'background-color': 'red'}">
+                </div>
+                <span style="margin-left: 10px; margin-top: -2px;"> {{item.status}}</span>
+            </div>
+            <div style="display: flex;
     flex-direction:row;margin-top: 12px; margin-left: 12px;">
-        <dx-button class="undo"
-        (click)= "updateBotData(item,'Active')"
-        icon="undo"
-        type="Normal"
-        text="Restart"
-        >
-    </dx-button>
-    <div style="margin-left: 5px;">
-    <dx-button class="undo"
-    (click)= "updateBotData(item, 'InActive')"
-    icon="clear"
-    type="Normal"
-    text="Shutdown"
-    >
-</dx-button>
-</div>
+                <!-- <dx-button class="undo" [disabled]="item.status === 'Active'" (click)="updateBotData(item,'Active')"
+                    icon="undo" type="Normal" text="Restart">
+                </dx-button> -->
+                <div style="margin-left: 5px;">
+                    <dx-button class="undo" [disabled]="item.status === 'InActive'"
+                        (click)="updateBotData(item, 'InActive')" icon="clear" type="Normal" text="Shutdown">
+                    </dx-button>
+                </div>
 
-       
+
+            </div>
+
+        </div>
     </div>
-
+ 
 </div>
-</div>
-
-</div>
-

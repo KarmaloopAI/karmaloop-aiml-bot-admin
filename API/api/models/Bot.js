@@ -6,7 +6,6 @@
  */
 
 module.exports = {
-
   attributes: {
     IPAddress:{
       type:'string'
@@ -26,7 +25,9 @@ module.exports = {
       defaultsTo: 'Active'
     },
     botName:{
-      type:'string'
+      type:'string',
+      unique:true,
+      required: true
     },
     groupName:{
       type:'string'

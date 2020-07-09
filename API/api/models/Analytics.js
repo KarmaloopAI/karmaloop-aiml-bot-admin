@@ -12,6 +12,9 @@ module.exports = {
       type: 'string',
       required: true,
     },
+    botName: {
+      type: 'string'
+    },
     botReply: {
       type: 'string',
       required: true

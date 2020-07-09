@@ -15,7 +15,7 @@ module.exports = {
     'getBotById': async function (req, res) {
         const id = req.params.id;
         const response = await Bot.findOne({
-            id: id
+            botId: id
         });
         if (response) {
             return res.status(202).send(response);
@@ -30,18 +30,18 @@ module.exports = {
         } catch (error) {
             if (error.name == 'AdapterError') {
                 if (error.code == 'E_UNIQUE') {
-                    return res.status(400).send({ 'errMsg': 'Duplicate Bot Id' });
+                    return res.status(400).send({ 'errMsg': 'Duplicate Bot Id or Bot Name' });
                 }
             }
 
-
+            return res.status(500).send(error);
 
         }
     },
     'deletBot': async function (req, res) {
         const id = req.params.id;
         const response = await Bot.destroyOne({
-            id: id
+            botId: id
         });
         if (response) {
             return res.status(202).send(response);
@@ -49,46 +49,22 @@ module.exports = {
             return res.status(404).send();
         }
     },
-    /**
-     * @description Method to set the new details for the BOT
-     * @param {*} req  Request to the API
-     * @param {*} res  Response from the API
-     */
     'updateBot': async function (req, res) {
         const id = req.params.id;
         try {
             const response = await Bot.update({ botId: id }).set(req.body).fetch();
-            if (response) {
-                return res.status(202).send(response);
+            if (response.length) {
+                return res.status(202).send(response[0]);
             } else {
-                return res.status(404).send();
+                return res.status(404).send({errMsg:"Bot not found"});
             }
         } catch (err) {
             if (err.code === 'E_INVALID_VALUES_TO_SET') {
                 return res.status(400).send({ 'errMsg': 'Invalid Status  - Status should be eithier Active or Inactive' })
             }
+            return res.status(500).send(err);
         }
 
-    },
-    'deletBot': async function (req, res) {
-        var id = req.params.id;
-        var response = await Bot.destroyOne({
-            id: id
-        });
-        if (response) {
-            return res.status(202).send(response);
-        } else {
-            return res.status(404).send();
-        }
-    },
-    'updateBot': async function (req, res) {
-        var id = req.params.id;
-        var response = await Bot.update({ botId: id }).set(req.body).fetch();
-        if (response) {
-            return res.status(202).send(response);
-        } else {
-            return res.status(404).send();
-        }
     }
 
 };

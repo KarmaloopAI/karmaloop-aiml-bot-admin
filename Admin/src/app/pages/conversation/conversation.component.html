@@ -1,0 +1,30 @@
+<div *ngIf="bots.length">
+    <div class="dx-fieldset-header">Select a bot</div>
+    <div class="dx-field">
+        <div class="dx-field-value">
+            <dx-drop-down-button [splitButton]="false" [useSelectMode]="false" [text]="text" [items]="bots"
+                displayExpr="name" keyExpr="value" (onItemClick)="changeBot($event)"></dx-drop-down-button>
+        </div>
+    </div>
+
+    <div style="margin: 40px; margin-top: -5px;">
+        <dx-data-grid id="gridContainer" *ngIf="botAnalytics.length" [dataSource]="botAnalytics"
+            [rowAlternationEnabled]="true" [showBorders]="true" rowTemplate="rowTemplateName">
+            >
+            <dxi-column dataField="timestamp" caption="Timestamp" alignment="left"></dxi-column>
+            <dxi-column dataField="userId" caption="User ID" alignment="left">
+            </dxi-column>
+            <dxi-column dataField="botReply" caption="Bot Reply" alignment="left"></dxi-column>
+            <dxi-column dataField="userReply" caption="User Reply" alignment="left"></dxi-column>
+            <tbody class="employee dx-row" [ngClass]="{'dx-row-alt': employee.rowIndex % 2}"
+                *dxTemplate="let employee of 'rowTemplateName'">
+                <tr class="main-row">
+                    <td>{{employee.data.timestamp  | date: 'short'}}</td>
+                    <td>{{employee.data.userId}}</td>
+                    <td>{{employee.data.botReply}}</td>
+                    <td>{{employee.data.userReply}}</td>
+                </tr>
+            </tbody>
+        </dx-data-grid>
+    </div>
+</div>
