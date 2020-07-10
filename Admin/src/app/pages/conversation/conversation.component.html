@@ -1,13 +1,17 @@
-<div *ngIf="bots.length">
-    <div class="dx-fieldset-header">Select a bot</div>
+<div class="dx-fieldset">
     <div class="dx-field">
+        <div class="dx-field-label" style="font-size: 25px;">
+            Select a Bot
+        </div>
         <div class="dx-field-value">
+
             <dx-drop-down-button [splitButton]="false" [useSelectMode]="false" [text]="text" [items]="bots"
                 displayExpr="name" keyExpr="value" (onItemClick)="changeBot($event)"></dx-drop-down-button>
+
         </div>
     </div>
 
-    <div style="margin: 40px; margin-top: -5px;">
+    <div class="dx-field">
         <dx-data-grid id="gridContainer" *ngIf="botAnalytics.length" [dataSource]="botAnalytics"
             [rowAlternationEnabled]="true" [showBorders]="true" rowTemplate="rowTemplateName">
             >

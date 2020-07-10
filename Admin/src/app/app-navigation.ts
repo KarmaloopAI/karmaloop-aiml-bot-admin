@@ -12,6 +12,6 @@ export const navigation = [
   {
     text: 'Conversations',
     path: '/conversation',
-    icon: 'newfolder'
+    icon: 'comment'
   }
 ];

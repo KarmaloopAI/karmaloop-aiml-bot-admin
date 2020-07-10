@@ -17,9 +17,9 @@ export class NewbotComponent implements OnInit {
   public validatioMessages: any;
 
   constructor(public service: ChartService,
-    private fb: FormBuilder,
-    private botService: BotService,
-    private router: Router) {
+              private fb: FormBuilder,
+              private botService: BotService,
+              private router: Router) {
     this.Groups = [
       'Group A',
       'Group B',
@@ -101,14 +101,22 @@ export class NewbotComponent implements OnInit {
     }
   }
   updateBotData(data, status) {
-    const result = confirm('Are you sure? <br> Note: You need to manually restart ' + data.botName, 'Confirm changes');
-    result.then((dialogResult) => {
-      if (dialogResult) {
-        data.status = status;
-        this.botService.updateBotData(data.botId, data).subscribe(res => {
-          this.reload();
-        });
-      }
+    if (status === 'Active') {
+      this.updateStatus(data.botId, { status });
+    } else {
+      const title = 'Confirm changes';
+      const message = 'Are you sure? <br> Note: You need to manually restart ' + data.botName + ' after shutdown.';
+      const result = confirm( message, title);
+      result.then((dialogResult) => {
+        if (dialogResult) {
+          this.updateStatus(data.botId, { status });
+        }
+      });
+    }
+  }
+  updateStatus(id, status) {
+    this.botService.updateBotData(id, status).subscribe(res => {
+      this.reload();
     });
   }
   reload() {

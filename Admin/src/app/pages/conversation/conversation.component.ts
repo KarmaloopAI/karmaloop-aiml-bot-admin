@@ -16,7 +16,7 @@ export class ConversationComponent implements OnInit {
   text = 'Select bot';
   ngOnInit() {
     this.botService.getAllBots().subscribe(res => {
-      if (!res) {
+      if (res) {
         res.forEach(element => {
           this.bots.push({
             name: element.botName,
@@ -24,7 +24,7 @@ export class ConversationComponent implements OnInit {
           });
         });
       } else {
-        alert('Register some bots', 'Information').then((r) => {
+        alert('Please connect a bot or more to see conversations.', 'No Bots Connected').then((r) => {
           this.router.navigate(['/newbot']);
         });
       }
