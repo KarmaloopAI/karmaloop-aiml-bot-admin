@@ -16,13 +16,13 @@
             </dxi-column>
             <dxi-column dataField="botReply" caption="Bot Reply" alignment="left"></dxi-column>
             <dxi-column dataField="userReply" caption="User Reply" alignment="left"></dxi-column>
-            <tbody class="employee dx-row" [ngClass]="{'dx-row-alt': employee.rowIndex % 2}"
-                *dxTemplate="let employee of 'rowTemplateName'">
+            <tbody class="dx-row" [ngClass]="{'dx-row-alt': bot.rowIndex % 2}"
+                *dxTemplate="let bot of 'rowTemplateName'">
                 <tr class="main-row">
-                    <td>{{employee.data.timestamp  | date: 'short'}}</td>
-                    <td>{{employee.data.userId}}</td>
-                    <td>{{employee.data.botReply}}</td>
-                    <td>{{employee.data.userReply}}</td>
+                    <td>{{bot.data.timestamp  | date: 'short'}}</td>
+                    <td>{{bot.data.userId}}</td>
+                    <td>{{bot.data.botReply}}</td>
+                    <td>{{bot.data.userReply}}</td>
                 </tr>
             </tbody>
         </dx-data-grid>
