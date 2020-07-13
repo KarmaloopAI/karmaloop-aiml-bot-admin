@@ -14,6 +14,7 @@ export class ConversationComponent implements OnInit {
   bots: any[] = [];
   botAnalytics: any[] = [];
   text = 'Select bot';
+  botId = '';
   ngOnInit() {
     this.botService.getAllBots().subscribe(res => {
       if (res) {
@@ -23,6 +24,7 @@ export class ConversationComponent implements OnInit {
             value: element.botId
           });
         });
+        setInterval(() => { this.getConversationData(); }, 2000);
       } else {
         alert('Please connect a bot or more to see conversations.', 'No Bots Connected').then((r) => {
           this.router.navigate(['/newbot']);
@@ -31,11 +33,16 @@ export class ConversationComponent implements OnInit {
     });
   }
   changeBot(event: any) {
-    const botId = event.itemData.value;
+    this.botId = event.itemData.value;
     this.text = event.itemData.name;
-    this.chartService.getBotsAnalyicsDataById(botId).subscribe(res => {
-      this.botAnalytics = res;
-    });
+    this.getConversationData();
   }
+  getConversationData() {
+    if (this.botId) {
+      this.chartService.getBotsAnalyicsDataById(this.botId).subscribe(res => {
+        this.botAnalytics = res;
+      });
+    }
 
+  }
 }
