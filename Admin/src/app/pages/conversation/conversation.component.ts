@@ -24,7 +24,10 @@ export class ConversationComponent implements OnInit {
             value: element.botId
           });
         });
-        setInterval(() => { this.getConversationData(); }, 2000);
+        // For auto refresh of GRID
+        setInterval(() => {
+          this.getConversationData();
+        }, 15000);
       } else {
         alert('Please connect a bot or more to see conversations.', 'No Bots Connected').then((r) => {
           this.router.navigate(['/newbot']);
