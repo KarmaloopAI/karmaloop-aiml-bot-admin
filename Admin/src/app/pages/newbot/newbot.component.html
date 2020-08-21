@@ -4,9 +4,9 @@
         <form [formGroup]="newBotForm">
             <div style=" margin-left: 10px; ">
                 <div class="dx-field">
-                    <div class="dx-field-label">Server IpAddress</div>
+                    <div class="dx-field-label">Server IP Address</div>
                     <div class="dx-field-value">
-                        <dx-text-box placeholder="Server IpAddress" stylingMode="outlined" [showClearButton]="true"
+                        <dx-text-box placeholder="Server IP Address/Hostname" stylingMode="outlined" [showClearButton]="true"
                             [height]="40" formControlName="IPAddress"></dx-text-box>
                     </div>
 
@@ -127,13 +127,13 @@ flex-direction:row; margin-left: 8px; ">
                 <div class="circle"></div>
                 <span
                     style="margin-left: 10px;margin-right: -15px; color: rgb(160, 152, 152); margin-top: 5px;">{{item.botName}}</span>
-                <span style="margin-top: 18px; margin-left: -25px; color: rgb(160, 152, 152);">Customer Agent Bot</span>
+                <span style="margin-top: 18px; margin-left: -25px; color: rgb(160, 152, 152);">{{item.groupName}}</span>
 
             </div>
             <div class="middle">
                 <div style="display: flex;
          flex-direction:row; margin-left: 10px; padding-top: 20px;">
-                    <span> <strong> Ip Address:</strong> </span>
+                    <span> <strong> IP Address:</strong> </span>
                     <span style="margin-left: 10px;">{{item.IPAddress}}</span>
                 </div>
                 <div style="display: flex;
@@ -143,8 +143,8 @@ flex-direction:row; margin-left: 8px; ">
                 </div>
                 <div style="display: flex;
          flex-direction:row; margin-left: 10px;">
-                    <span> <strong> Last Active:</strong> </span>
-                    <span style="margin-left: 10px;">Now</span>
+                    <span> <strong> Bot ID:</strong> </span>
+                    <span style="margin-left: 40px;">{{item.botId}}</span>
                 </div>
                 <div style="display: flex;
          flex-direction:row; margin-left: 10px;">
@@ -153,8 +153,8 @@ flex-direction:row; margin-left: 8px; ">
                 </div>
                 <div style="display: flex;
          flex-direction:row; margin-left: 10px;">
-                    <span> <strong> Chat URL:</strong> </span>
-                    <span style="margin-left: 15px;">http://{{item.IPAddress}}/chatui/url</span>
+                    <span> <strong> Test URL:</strong> </span>
+                    <span style="margin-left: 15px;"><a target="_blank" href="http://{{item.IPAddress}}/api/ChatUi/index.html">Chat with Bot</a></span>
                 </div>
 
             </div>
